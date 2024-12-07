@@ -16,9 +16,16 @@ public class Day4 {
 
   public static void main(String[] args) {
     readInput("src/main/java/year2024/day4/input.txt");
-    iterateInput();
+    long start = System.currentTimeMillis();
+    iterateInput(false);
+    long end1 = System.currentTimeMillis();
+    iterateInput(true);
+    long end2 = System.currentTimeMillis();
     System.out.println("Instances of 'XMAS': " + xmasCount);
     System.out.println("Instances of X-'MAS': " + xMASCount);
+
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
   }
 
   /**
@@ -44,17 +51,19 @@ public class Day4 {
 
   /**
    * iterates through all characters of the input and handles X's (part 1) and A's (part 2)
+   *
+   * @param part2 part2 enabled
    */
-  private static void iterateInput() {
+  private static void iterateInput(boolean part2) {
     String row;
     maxRows = rows.size() - 1;
     maxCols = rows.get(0).length();
     for (int i = 0; i < maxRows; i++) {
       row = rows.get(i);
       for (int j = 0; j < maxCols; j++) {
-        if (row.charAt(j) == 'X') {
+        if (!part2 && row.charAt(j) == 'X') {
           searchXMAS(row, i, j);  // part 1
-        } else if (row.charAt(j) == 'A') {
+        } else if (part2 && row.charAt(j) == 'A') {
           searchMAS(i, j);      // part 2
         }
       }

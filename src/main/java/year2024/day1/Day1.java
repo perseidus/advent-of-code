@@ -12,11 +12,19 @@ public class Day1 {
   static List<Integer> list2 = new ArrayList<>();
 
   public static void main(String[] args) {
+    long start = System.currentTimeMillis();
+
     splitInput("src/main/java/year2024/day1/input.txt");
     list1 = mergeSort(list1);
     list2 = mergeSort(list2);
+
     System.out.println("Total distance = " + getTotalDistance(list1, list2));
+    long end1 = System.currentTimeMillis();
     System.out.println("Similarity score = " + getSimilarity(list1, list2));
+    long end2 = System.currentTimeMillis();
+
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
   }
 
   /**

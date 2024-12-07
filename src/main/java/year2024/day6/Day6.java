@@ -20,11 +20,19 @@ public class Day6 {
   static List<char[]> startingRows = new ArrayList<char[]>();
 
   public static void main(String[] args) {
+    long start = System.currentTimeMillis();
     readInput("src/main/java/year2024/day6/input.txt");
+
     simulatePath(startingRows, -1, -1);
+    long end1 = System.currentTimeMillis();
     System.out.println("Visited squares: " + visited);
+
     int validObstacles = checkObstacles();
     System.out.println("Valid obstacles to generate a loop: " + validObstacles);
+    long end2 = System.currentTimeMillis();
+
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
   }
 
   /**

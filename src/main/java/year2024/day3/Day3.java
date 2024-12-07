@@ -8,24 +8,33 @@ import java.util.regex.Pattern;
 
 public class Day3 {
 
-  static int result = 0;
   static Pattern pattern;   // pattern for mul( , ) operations
-  static boolean doDontFlag = true;
   // true for filtering with do/don't operations (part 2)
   // false for default (part 1)
 
   public static void main(String[] args) {
     pattern = Pattern.compile("mul\\((\\d{1,3}),(\\d{1,3})\\)");
-    readInput("src/main/java/year2024/day3/input.txt");
+    StringBuffer sb = readInput("src/main/java/year2024/day3/input.txt");
+
+    long start = System.currentTimeMillis();
+    int result = findMatches(sb.toString());
+    long end1 = System.currentTimeMillis();
     System.out.println("Result: " + result);
+    result = findMatchesLimited(sb.toString());
+    long end2 = System.currentTimeMillis();
+    System.out.println("Result with do/don't: " + result);
+
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
   }
 
   /**
    * reads the input file and forwards the resulting string to the findMatches methods
    *
    * @param file filepath
+   * @return the input as stringbuffer
    */
-  private static void readInput(String file) {
+  private static StringBuffer readInput(String file) {
     StringBuffer sb;
     try {
       FileReader fr = new FileReader(file);
@@ -40,12 +49,7 @@ public class Day3 {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-
-    if (doDontFlag) {
-      findMatchesLimited(sb.toString());
-    } else {
-      findMatches(sb.toString());
-    }
+    return sb;
   }
 
   /**
@@ -53,12 +57,15 @@ public class Day3 {
    * <pre> result = result + (x * y) for all operations
    *
    * @param input input string
+   * @return result
    */
-  private static void findMatches(String input) {
+  private static int findMatches(String input) {
+    int result = 0;
     Matcher matcher = pattern.matcher(input);
     while (matcher.find()) {
       result += Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2));
     }
+    return result;
   }
 
   /**
@@ -66,24 +73,26 @@ public class Day3 {
    * every operation with a leading don't() and no do() between it and the operation gets filtered
    * <pre> result = result + (x * y) for all enabled operations
    *
-   * @param input
+   * @param input input string
+   * @return result
    */
-  private static void findMatchesLimited(String input) {
+  private static int findMatchesLimited(String input) {
     int split;
+    int result = 0;
     while (true) {
       if (input.contains("don't()")) {
         split = input.indexOf("don't()");
-        findMatches(input.substring(0, split));
+        result += findMatches(input.substring(0, split));
         input = input.substring(split + 1);
       } else {
-        findMatches(input);
-        break;
+        result += findMatches(input);
+        return result;
       }
       if (input.contains("do()")) {
         split = input.indexOf("do()");
         input = input.substring(split + 1);
       } else {
-        break;
+        return result;
       }
     }
   }

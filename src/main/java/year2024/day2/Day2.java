@@ -12,9 +12,16 @@ public class Day2 {
   static int safeCountImproved = 0;
 
   public static void main(String[] args) {
-    readInput("src/main/java/year2024/day2/input.txt");
+    long start = System.currentTimeMillis();
+    readInput("src/main/java/year2024/day2/input.txt", false);
+    long end1 = System.currentTimeMillis();
+    readInput("src/main/java/year2024/day2/input.txt", true);
+    long end2 = System.currentTimeMillis();
+
     System.out.println("Number of safe reports: " + safeCount);
     System.out.println("Number of improved safe reports: " + safeCountImproved);
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
+    System.out.println("Part 1: " + (end2 - end1) / 1000.0 + "ms");
   }
 
   /**
@@ -22,7 +29,7 @@ public class Day2 {
    *
    * @param file filepath
    */
-  private static void readInput(String file) {
+  private static void readInput(String file, boolean part2) {
     try {
       FileReader fr = new FileReader(file);
       BufferedReader br = new BufferedReader(fr);
@@ -36,10 +43,9 @@ public class Day2 {
         for (String level : levels) {
           report.add(Integer.parseInt(level));  // line to list of integers
         }
-        if (checkSafety(report)) {  // safe without removing any level
+        if (!part2 && checkSafety(report)) {  // safe without removing any level
           safeCount++;
-          safeCountImproved++;
-        } else {
+        } else if (part2) {
           List<Integer> tmp;
           for (int i = 0; i < report.size(); i++) {
             tmp = new ArrayList<>(report);

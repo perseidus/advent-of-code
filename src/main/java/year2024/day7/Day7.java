@@ -15,16 +15,23 @@ public class Day7 {
   static long result = 0;
 
   public static void main(String[] args) {
+    long start = System.currentTimeMillis();
     readInput("src/main/java/year2024/day7/input.txt");
-    for (long[] equation : equations) {
-      breadthFirstSearch(equation, false);  // part 1
+    for (long[] equation : equations) { // part 1
+      breadthFirstSearch(equation, false);
     }
+    long end1 = System.currentTimeMillis();
     System.out.println("Sum of all valid equations (* and +): " + result);
+
     result = 0;
-    for (long[] equation : equations) {
-      breadthFirstSearch(equation, true);   // part 2
+    for (long[] equation : equations) { // part 2
+      breadthFirstSearch(equation, true);
     }
+    long end2 = System.currentTimeMillis();
     System.out.println("Sum of all valid equations (*, + and ||): " + result);
+
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
   }
 
   /**

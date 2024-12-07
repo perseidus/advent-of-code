@@ -17,9 +17,17 @@ public class Day5 {
   static int correctedScore = 0;
 
   public static void main(String[] args) {
-    readInput("src/main/java/year2024/day5/input.txt");
+    long start = System.currentTimeMillis();
+    readInput("src/main/java/year2024/day5/input.txt", false);
     System.out.println("Sum of valid sequence middle points: " + score);
+    long end1 = System.currentTimeMillis();
+
+    readInput("src/main/java/year2024/day5/input.txt", true);
     System.out.println("Sum of corrected sequence middle points: " + correctedScore);
+    long end2 = System.currentTimeMillis();
+
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
   }
 
   /**
@@ -27,7 +35,9 @@ public class Day5 {
    *
    * @param file filepath
    */
-  private static void readInput(String file) {
+  private static void readInput(String file, boolean part2) {
+    score = 0;
+    correctedScore = 0;
     try {
       FileReader fr = new FileReader(file);
       BufferedReader br = new BufferedReader(fr);
@@ -61,8 +71,8 @@ public class Day5 {
   }
 
   /**
-   * verifies ordered sequences + sums up their center values (part 1), or <br>
-   * orders them (part 2)
+   * verifies ordered sequences + sums up their center values (part 1), <br>
+   * or orders them (part 2)
    *
    * @param line a sequence string
    */

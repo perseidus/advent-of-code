@@ -20,8 +20,8 @@ public class Day2 {
 
     System.out.println("Number of safe reports: " + safeCount);
     System.out.println("Number of improved safe reports: " + safeCountImproved);
-    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
-    System.out.println("Part 1: " + (end2 - end1) / 1000.0 + "ms");
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "s");
+    System.out.println("Part 1: " + (end2 - end1) / 1000.0 + "s");
   }
 
   /**

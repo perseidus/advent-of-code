@@ -24,8 +24,8 @@ public class Day4 {
     System.out.println("Instances of 'XMAS': " + xmasCount);
     System.out.println("Instances of X-'MAS': " + xMASCount);
 
-    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
-    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "s");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "s");
   }
 
   /**

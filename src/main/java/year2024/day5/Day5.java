@@ -26,8 +26,8 @@ public class Day5 {
     System.out.println("Sum of corrected sequence middle points: " + correctedScore);
     long end2 = System.currentTimeMillis();
 
-    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "ms");
-    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "ms");
+    System.out.println("Part 1: " + (end1 - start) / 1000.0 + "s");
+    System.out.println("Part 2: " + (end2 - end1) / 1000.0 + "s");
   }
 
   /**

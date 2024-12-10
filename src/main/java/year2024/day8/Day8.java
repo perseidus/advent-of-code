@@ -14,7 +14,7 @@ public class Day8 {
 
   static int maxRow;
   static int maxCol;
-  static Map<Character, List<Position>> antennas = new HashMap<Character, List<Position>>();
+  static Map<Character, List<Position>> antennae = new HashMap<Character, List<Position>>();
 
   public static void main(String[] args) {
     long start = System.currentTimeMillis();
@@ -49,10 +49,10 @@ public class Day8 {
         int j = 0;
         for (Character c : line.toCharArray()) {
           if (!c.equals('.')) {
-            if (!antennas.containsKey(c)) { // new frequency
-              antennas.put(c, new ArrayList<Position>());
+            if (!antennae.containsKey(c)) { // new frequency
+              antennae.put(c, new ArrayList<Position>());
             }
-            antennas.get(c).add(new Position(i, j)); // add position of antenna for frequency c
+            antennae.get(c).add(new Position(i, j)); // add position of antenna for frequency c
           }
           j++;
         }
@@ -66,18 +66,18 @@ public class Day8 {
   }
 
   /**
-   * Counts the antinodes for all antennas: positions on the grid, that are in a line with 2
-   * antennas with the same frequency (same character) and one of the antennas is twice as far away
+   * Counts the antinodes for all antennae: positions on the grid, that are in a line with 2
+   * antennae with the same frequency (same character) and one of the antennae is twice as far away
    * as the other (part1), or in a line at any position (part 2)
    *
    * @param part2 antinodes also occur in a line at any grid position (part 2)
    * @return number of antinodes
    */
   private static int calculateAllAntinodes(boolean part2) {
-    Set<Position> antinodes = new HashSet<Position>();  // all antinodes of all antennas
+    Set<Position> antinodes = new HashSet<Position>();  // all antinodes of all antennae
 
-    for (List<Position> positions : antennas.values()) {  // for every frequency (character)
-      for (Position a1 : positions) { // for all antennas of the same frequency
+    for (List<Position> positions : antennae.values()) {  // for every frequency (character)
+      for (Position a1 : positions) { // for all antennae of the same frequency
         for (Position a2 : positions) {
           List<Position> newAN = calculateAntinodes(a1, a2, part2); // calculate antinodes
           antinodes.addAll(newAN);
@@ -88,13 +88,13 @@ public class Day8 {
   }
 
   /**
-   * Counts the antinodes on the grid for two given antennas (2 antinodes for part 1), in a line of
-   * the two antennas at any grid position (part 2)
+   * Counts the antinodes on the grid for two given antennae (2 antinodes for part 1), in a line of
+   * the two antennae at any grid position (part 2)
    *
    * @param a1    position of antenna 1
    * @param a2    position of antenna 2
    * @param part2 antinodes also occur in a line at any grid position (part 2)
-   * @return list of all antinode positions created by 2 antennas
+   * @return list of all antinode positions created by 2 antennae
    */
   private static List<Position> calculateAntinodes(Position a1, Position a2, boolean part2) {
     List<Position> antinodes = new ArrayList<>();

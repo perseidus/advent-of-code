@@ -1,7 +1,8 @@
 package year2024.day8;
 
 /**
- * Position of an antenna, mainly for eliminating duplicates
+ * Position of an antenna, mainly for eliminating duplicates <br>
+ * Also used day 10 (position of a trailhead)
  */
 public class Position {
 

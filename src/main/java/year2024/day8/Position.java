@@ -2,12 +2,13 @@ package year2024.day8;
 
 /**
  * Position of an antenna, mainly for eliminating duplicates <br>
- * Also used day 10 (position of a trailhead)
+ * Also used for day 10 (position of a trailhead)
+ * Also used for day 12 (position of a plant)
  */
 public class Position {
 
-  int x;
-  int y;
+  public int x;
+  public int y;
 
   public Position(int x, int y) {
     this.x = x;

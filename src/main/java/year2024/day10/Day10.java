@@ -18,7 +18,7 @@ public class Day10 {
     calculateAllScores(map);
     long end = System.currentTimeMillis();
 
-    System.out.println("Part 1: " + (end - start) / 1000.0 + "s");
+    System.out.println("Part 1 + 2: " + (end - start) / 1000.0 + "s");
   }
 
   /**

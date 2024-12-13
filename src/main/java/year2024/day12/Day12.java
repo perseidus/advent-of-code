@@ -33,7 +33,7 @@ public class Day12 {
    * reads the input file
    *
    * @param file filepath
-   * @return 2-dimensional int array of topographic map
+   * @return 2-dimensional int array of plant map
    */
   private static int[][] readInput(String file) {
     List<int[]> plantsRows = new ArrayList<>();

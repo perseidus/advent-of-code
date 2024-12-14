@@ -37,5 +37,6 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### AoC inputs ###
+### AoC inputs / outputs ###
 **/input*
+**/output*

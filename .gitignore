@@ -40,3 +40,4 @@ build/
 ### AoC inputs / outputs ###
 **/input*
 **/output*
+config.properties

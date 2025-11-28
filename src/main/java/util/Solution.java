@@ -17,6 +17,14 @@ public abstract class Solution {
 
   public abstract void solvePart2();
 
+  protected void solve() {
+    solvePart1();
+    lap();
+
+    solvePart2();
+    lap();
+  }
+
   protected void lap() {
     double seconds = (System.currentTimeMillis() - start) / 1000.0;
     System.out.println(" - finished in: " + seconds + "s");

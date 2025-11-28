@@ -13,12 +13,6 @@ public class Day extends Solution{
   }
 
   public static void main(String[] args) {
-    Solution solution = new Day();
-
-    solution.solvePart1();
-    solution.lap();
-
-    solution.solvePart1();
-    solution.lap();
+    new Day().solve();
   }
 }

@@ -2,6 +2,7 @@ package util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,11 +22,18 @@ public class IO {
   public static List<String> getInput() {
     Config config = Config.getInstance();
 
-    if (config.inputWeb) {
-      return readUrlInput();
-    } else {
+    // force input from web or file
+    if (config.inputForce) {
+      return config.inputWeb ? readUrlInput() : readFileInput();
+    }
+
+    // if file exists read from there
+    File file = new File(config.dir);
+    if (file.exists()) {
       return readFileInput();
     }
+
+    return readUrlInput();
   }
 
   public static List<String> readFileInput() {
@@ -104,7 +112,4 @@ public class IO {
     }
   }
 
-  public static void main(String[] args) {
-    readUrlInput();
-  }
 }

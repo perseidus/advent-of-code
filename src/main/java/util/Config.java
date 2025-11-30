@@ -13,6 +13,7 @@ public class Config {
   int year;
 
   boolean inputWeb;
+  boolean inputForce;
   String webCookie;
   String url;
 
@@ -24,6 +25,7 @@ public class Config {
     year = Calendar.getInstance().get(Calendar.YEAR);
 
     inputWeb = true;
+    inputForce = false;
     webCookie = "";
 
     getConfig();
@@ -53,6 +55,8 @@ public class Config {
 
       if (key.equals("input.web")) {
         inputWeb = Boolean.parseBoolean(value);
+      } else if (key.equals("input.force")) {
+        inputForce = Boolean.parseBoolean(value);
       } else if (key.equals("web.cookie")) {
         webCookie = value;
       } else if (key.equals("override.enabled")) {

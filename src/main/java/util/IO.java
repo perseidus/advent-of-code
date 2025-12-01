@@ -103,9 +103,7 @@ public class IO {
     try (FileWriter fw = new FileWriter(fileName);
         BufferedWriter bw = new BufferedWriter(fw)) {
 
-      for (String line : lines) {
-        bw.write(line + "\n");
-      }
+      bw.write(String.join("\n", lines));
 
     } catch (IOException e) {
       throw new RuntimeException(e);

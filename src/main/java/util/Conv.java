@@ -14,6 +14,24 @@ public class Conv {
     return result;
   }
 
+  public static List<String[]> split(List<String> lines, int... sep) {
+    List<String[]> result = new LinkedList<>();
+
+    for (String line : lines) {
+      String[] tmp = new String[sep.length + 1];
+      int curr = 0;
+
+      for (int i = 0; i < sep.length; i++) {
+        tmp[i] = line.substring(curr, sep[i]);
+        curr = sep[i];
+      }
+      tmp[tmp.length - 1] = line.substring(curr);
+
+      result.add(tmp);
+    }
+    return result;
+  }
+
   public static List<int[]> toInt(List<String[]> lines) {
     List<int[]> result = new LinkedList<>();
 

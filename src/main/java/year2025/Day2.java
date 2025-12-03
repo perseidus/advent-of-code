@@ -86,6 +86,6 @@ public class Day2 extends Solution {
   }
 
   public static void main(String[] args) {
-    new Day2().solveSample(5);
+    new Day2().solve();
   }
 }

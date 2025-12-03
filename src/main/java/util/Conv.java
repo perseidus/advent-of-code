@@ -84,12 +84,12 @@ public class Conv {
     return result;
   }
 
-  public static int[][] intMatrix(List<String[]> lines) {
-    int[][] result = new int[lines.size()][lines.get(0).length];
+  public static int[][] intMatrix(List<String> lines) {
+    int[][] result = new int[lines.size()][lines.get(0).length()];
 
     for (int i = 0; i < lines.size(); i++) {
-      for (int j = 0; j < lines.get(i).length; j++) {
-        result[i][j] = Integer.parseInt(lines.get(i)[j]);
+      for (int j = 0; j < lines.get(i).length(); j++) {
+        result[i][j] = Integer.parseInt(lines.get(i).charAt(j) + "");
       }
     }
     return result;

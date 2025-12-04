@@ -43,7 +43,7 @@ public abstract class Solution {
       solvePart2();
       seconds += lap();
     }
-    System.out.println(" - pt. 1 avg solve time: " + seconds / sampleSize + "s, with sample size: " + sampleSize);
+    System.out.println(" - pt. 2 avg solve time: " + seconds / sampleSize + "s, with sample size: " + sampleSize);
   }
 
   protected double lap() {

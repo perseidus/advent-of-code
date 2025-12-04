@@ -48,6 +48,6 @@ public class Day1 extends Solution {
   }
 
   public static void main(String[] args) {
-    new Day1().solveSample(5);
+    new Day1().solve();
   }
 }

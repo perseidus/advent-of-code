@@ -28,22 +28,22 @@ public abstract class Solution {
     System.out.println(" - pt. 2 finished in: " + seconds + "s");
   }
 
-  protected void solveSample(int sampleSize) {
+  protected void solve(int samples) {
     start = System.currentTimeMillis();
 
     double seconds = 0.0;
-    for (int i = 0; i < sampleSize; i++) {
+    for (int i = 0; i < samples; i++) {
       solvePart1();
       seconds += lap();
     }
-    System.out.println(" - pt. 1 avg solve time: " + seconds / sampleSize + "s, with sample size: " + sampleSize);
+    System.out.println(" - pt. 1 avg solve time: " + seconds / samples + "s, with sample size: " + samples);
 
     seconds = 0.0;
-    for (int i = 0; i < sampleSize; i++) {
+    for (int i = 0; i < samples; i++) {
       solvePart2();
       seconds += lap();
     }
-    System.out.println(" - pt. 2 avg solve time: " + seconds / sampleSize + "s, with sample size: " + sampleSize);
+    System.out.println(" - pt. 2 avg solve time: " + seconds / samples + "s, with sample size: " + samples);
   }
 
   protected double lap() {

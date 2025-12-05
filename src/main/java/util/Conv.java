@@ -32,7 +32,15 @@ public class Conv {
     return result;
   }
 
-  public static List<int[]> toInt(List<String[]> lines) {
+  public static List<Integer> toInt(List<String> lines) {
+    List<Integer> result = new LinkedList<>();
+    for (String line : lines) {
+      result.add(Integer.parseInt(line));
+    }
+    return result;
+  }
+
+  public static List<int[]> toIntArray(List<String[]> lines) {
     List<int[]> result = new LinkedList<>();
 
     for (String[] line : lines) {
@@ -45,7 +53,15 @@ public class Conv {
     return result;
   }
 
-  public static List<double[]> toDouble(List<String[]> lines) {
+  public static List<Double> toDouble(List<String> lines) {
+    List<Double> result = new LinkedList<>();
+    for (String line : lines) {
+      result.add(Double.parseDouble(line));
+    }
+    return result;
+  }
+
+  public static List<double[]> toDoubleArray(List<String[]> lines) {
     List<double[]> result = new LinkedList<>();
 
     for (String[] line : lines) {
@@ -58,7 +74,15 @@ public class Conv {
     return result;
   }
 
-  public static List<long[]> toLong(List<String[]> lines) {
+  public static List<Long> toLong(List<String> lines) {
+    List<Long> result = new LinkedList<>();
+    for (String line : lines) {
+      result.add(Long.parseLong(line));
+    }
+    return result;
+  }
+
+  public static List<long[]> toLongArray(List<String[]> lines) {
     List<long[]> result = new LinkedList<>();
 
     for (String[] line : lines) {
@@ -71,7 +95,15 @@ public class Conv {
     return result;
   }
 
-  public static List<char[]> toChar(List<String[]> lines) {
+  public static List<Character> toChar(List<String> lines) {
+    List<Character> result = new LinkedList<>();
+    for (String line : lines) {
+      result.add(line.charAt(0));
+    }
+    return result;
+  }
+
+  public static List<char[]> toCharArray(List<String[]> lines) {
     List<char[]> result = new LinkedList<>();
 
     for (String[] line : lines) {

@@ -6,9 +6,20 @@ import util.Solution;
 
 public class Day1 extends Solution {
 
+  private List<String[]> moves;
+
+  @Override
+  public void setupPart1() {
+    moves = Conv.split(input, 1);
+  }
+
+  @Override
+  public void setupPart2() {
+    moves = Conv.split(input, 1);
+  }
+
   @Override
   public void solvePart1() {
-    List<String[]> moves = Conv.split(input, 1);
     int pos = 50;
     int count = 0;
 
@@ -26,7 +37,6 @@ public class Day1 extends Solution {
 
   @Override
   public void solvePart2() {
-    List<String[]> moves = Conv.split(input, 1);
     int pos = 50;
     int count = 0;
 

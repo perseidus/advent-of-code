@@ -12,6 +12,10 @@ public abstract class Solution {
     input = IO.getInput();
   }
 
+  public abstract void setupPart1();
+
+  public abstract void setupPart2();
+
   public abstract void solvePart1();
 
   public abstract void solvePart2();
@@ -19,12 +23,14 @@ public abstract class Solution {
   protected void solve() {
     start = System.currentTimeMillis();
 
+    start(1);
     solvePart1();
-    double seconds = lap();
+    double seconds = end();
     System.out.println(" - pt. 1 finished in: " + seconds + "s");
 
+    start(2);
     solvePart2();
-    seconds = lap();
+    seconds = end();
     System.out.println(" - pt. 2 finished in: " + seconds + "s");
   }
 
@@ -33,22 +39,32 @@ public abstract class Solution {
 
     double seconds = 0.0;
     for (int i = 0; i < samples; i++) {
+      start(1);
       solvePart1();
-      seconds += lap();
+      seconds += end();
     }
     System.out.println(" - pt. 1 avg solve time: " + seconds / samples + "s, with sample size: " + samples);
 
     seconds = 0.0;
     for (int i = 0; i < samples; i++) {
+      start(2);
       solvePart2();
-      seconds += lap();
+      seconds += end();
     }
     System.out.println(" - pt. 2 avg solve time: " + seconds / samples + "s, with sample size: " + samples);
   }
 
-  protected double lap() {
-    double seconds = (System.currentTimeMillis() - start) / 1000.0;
+  protected void start(int part) {
     start = System.currentTimeMillis();
-    return seconds;
+
+    if (part == 1) {
+      setupPart1();
+    } else {
+      setupPart2();
+    }
+  }
+
+  protected double end() {
+    return (System.currentTimeMillis() - start) / 1000.0;
   }
 }

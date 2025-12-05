@@ -8,11 +8,22 @@ import util.Solution;
 public class Day2 extends Solution {
 
   private Set<Long> duplicates;
+  private String[] ranges;
+
+
+  @Override
+  public void setupPart1() {
+    ranges = Conv.split(input, ",").get(0);
+  }
+
+  @Override
+  public void setupPart2() {
+    ranges = Conv.split(input, ",").get(0);
+  }
 
   @Override
   public void solvePart1() {
     long result = 0;
-    String[] ranges = Conv.split(input, ",").get(0);
 
     for (String range : ranges) {
       String[] rangeStr = range.split("-");
@@ -30,7 +41,6 @@ public class Day2 extends Solution {
   @Override
   public void solvePart2() {
     long result = 0;
-    String[] ranges = Conv.split(input, ",").get(0);
 
     for (String range : ranges) {
       String[] rangeStr = range.split("-");

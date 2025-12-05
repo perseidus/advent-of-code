@@ -8,21 +8,29 @@ import util.Util;
 
 public class Day4 extends Solution {
 
-  private int[] y = new int[]{-1, -1, -1, 0, 1, 1, 1, 0};
-  private int[] x = new int[]{1, 0, -1, -1, -1, 0, 1, 1};
+  private final int[] y = new int[]{-1, -1, -1, 0, 1, 1, 1, 0};
+  private final int[] x = new int[]{1, 0, -1, -1, -1, 0, 1, 1};
 
+  private char[][] grid;
+
+  @Override
+  public void setupPart1() {
+    grid = Conv.charMatrix(input);
+  }
+
+  @Override
+  public void setupPart2() {
+    grid = Conv.charMatrix(input);
+  }
 
   @Override
   public void solvePart1() {
-    char[][] grid = Conv.charMatrix(input);
     int result = getNumberOfRemoved(grid, false);
     System.out.println(result);
   }
 
   @Override
   public void solvePart2() {
-    char[][] grid = Conv.charMatrix(input);
-
     int result = getNumberOfRemoved(grid, true);
     int current = -1;
 

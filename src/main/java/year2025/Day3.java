@@ -5,11 +5,22 @@ import util.Solution;
 
 public class Day3 extends Solution {
 
+  private int[][] rows;
+
+  @Override
+  public void setupPart1() {
+    rows = Conv.intMatrix(input);
+  }
+
+  @Override
+  public void setupPart2() {
+    rows = Conv.intMatrix(input);
+  }
+
   @Override
   public void solvePart1() {
     long result = 0;
 
-    int[][] rows = Conv.intMatrix(input);
     for (int[] row : rows) {
       int i1 = getHighest(row, 0, row.length - 1);
       int i2 = getHighest(row, i1 + 1, row.length);
@@ -24,7 +35,6 @@ public class Day3 extends Solution {
   public void solvePart2() {
     long result = 0;
 
-    int[][] rows = Conv.intMatrix(input);
     for (int[] row : rows) {
       StringBuilder bat = new StringBuilder();
       int index = -1;

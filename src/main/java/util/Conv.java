@@ -1,12 +1,12 @@
 package util;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Conv {
 
   public static List<String[]> split(List<String> lines, String sep) {
-    List<String[]> result = new LinkedList<>();
+    List<String[]> result = new ArrayList<>();
 
     for (String line : lines) {
       result.add(line.split(sep));
@@ -15,7 +15,7 @@ public class Conv {
   }
 
   public static List<String[]> split(List<String> lines, int... sep) {
-    List<String[]> result = new LinkedList<>();
+    List<String[]> result = new ArrayList<>();
 
     for (String line : lines) {
       String[] tmp = new String[sep.length + 1];
@@ -33,7 +33,7 @@ public class Conv {
   }
 
   public static List<Integer> toInt(List<String> lines) {
-    List<Integer> result = new LinkedList<>();
+    List<Integer> result = new ArrayList<>();
     for (String line : lines) {
       result.add(Integer.parseInt(line));
     }
@@ -41,7 +41,7 @@ public class Conv {
   }
 
   public static List<int[]> toIntArray(List<String[]> lines) {
-    List<int[]> result = new LinkedList<>();
+    List<int[]> result = new ArrayList<>();
 
     for (String[] line : lines) {
       int[] tmp = new int[line.length];
@@ -54,7 +54,7 @@ public class Conv {
   }
 
   public static List<Double> toDouble(List<String> lines) {
-    List<Double> result = new LinkedList<>();
+    List<Double> result = new ArrayList<>();
     for (String line : lines) {
       result.add(Double.parseDouble(line));
     }
@@ -62,7 +62,7 @@ public class Conv {
   }
 
   public static List<double[]> toDoubleArray(List<String[]> lines) {
-    List<double[]> result = new LinkedList<>();
+    List<double[]> result = new ArrayList<>();
 
     for (String[] line : lines) {
       double[] tmp = new double[line.length];
@@ -75,7 +75,7 @@ public class Conv {
   }
 
   public static List<Long> toLong(List<String> lines) {
-    List<Long> result = new LinkedList<>();
+    List<Long> result = new ArrayList<>();
     for (String line : lines) {
       result.add(Long.parseLong(line));
     }
@@ -83,7 +83,7 @@ public class Conv {
   }
 
   public static List<long[]> toLongArray(List<String[]> lines) {
-    List<long[]> result = new LinkedList<>();
+    List<long[]> result = new ArrayList<>();
 
     for (String[] line : lines) {
       long[] tmp = new long[line.length];
@@ -96,7 +96,7 @@ public class Conv {
   }
 
   public static List<Character> toChar(List<String> lines) {
-    List<Character> result = new LinkedList<>();
+    List<Character> result = new ArrayList<>();
     for (String line : lines) {
       result.add(line.charAt(0));
     }
@@ -104,7 +104,7 @@ public class Conv {
   }
 
   public static List<char[]> toCharArray(List<String[]> lines) {
-    List<char[]> result = new LinkedList<>();
+    List<char[]> result = new ArrayList<>();
 
     for (String[] line : lines) {
       char[] tmp = new char[line.length];

@@ -14,7 +14,7 @@ public class Day3 extends Solution {
 
   @Override
   public void setupPart2() {
-    rows = Conv.intMatrix(input);
+    setupPart1();
   }
 
   @Override

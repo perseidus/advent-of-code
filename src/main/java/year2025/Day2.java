@@ -18,7 +18,7 @@ public class Day2 extends Solution {
 
   @Override
   public void setupPart2() {
-    ranges = Conv.split(input, ",").get(0);
+    setupPart1();
   }
 
   @Override

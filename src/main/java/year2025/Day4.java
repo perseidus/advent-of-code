@@ -20,7 +20,7 @@ public class Day4 extends Solution {
 
   @Override
   public void setupPart2() {
-    grid = Conv.charMatrix(input);
+    setupPart1();
   }
 
   @Override

@@ -15,7 +15,7 @@ public class Day1 extends Solution {
 
   @Override
   public void setupPart2() {
-    moves = Conv.split(input, 1);
+    setupPart1();
   }
 
   @Override

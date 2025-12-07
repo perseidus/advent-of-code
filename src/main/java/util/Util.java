@@ -9,8 +9,8 @@ public class Util {
     return grid[y + yOff][x + xOff];
   }
 
-  public static boolean outOfBounds(char[][] grid, int y, int x) {
-    return y < 0 || y > grid.length - 1 || x < 0 || x > grid[y].length - 1;
+  public static boolean outOfBounds(char[][] grid, int row, int col) {
+    return row < 0 || row > grid.length - 1 || col < 0 || col > grid[row].length - 1;
   }
 
 }

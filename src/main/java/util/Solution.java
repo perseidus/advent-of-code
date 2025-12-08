@@ -55,13 +55,12 @@ public abstract class Solution {
   }
 
   protected void start(int part) {
-    start = System.currentTimeMillis();
-
     if (part == 1) {
       setupPart1();
     } else {
       setupPart2();
     }
+    start = System.currentTimeMillis();
   }
 
   protected double end() {
